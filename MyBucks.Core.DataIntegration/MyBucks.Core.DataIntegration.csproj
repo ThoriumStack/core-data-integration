@@ -4,4 +4,10 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="TypeConverters\**" />
+    <EmbeddedResource Remove="TypeConverters\**" />
+    <None Remove="TypeConverters\**" />
+  </ItemGroup>
+
 </Project>
