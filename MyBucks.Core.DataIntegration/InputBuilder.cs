@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace MyBucks.Core.DataIntegration
@@ -75,7 +76,11 @@ namespace MyBucks.Core.DataIntegration
         /// <returns></returns>
         public IInputBuilder ReadAll<TData>(IList<TData> destination) where TData : new()
         {
-            _buildActions.Add(() => _serializer.GetData<TData>(_stream));
+            _buildActions.Add(() =>
+            {
+                var result = _serializer.GetData<TData>(_stream);
+                destination = result.ToList();
+            });
             return this;
         }
 
