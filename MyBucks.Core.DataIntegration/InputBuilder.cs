@@ -79,7 +79,7 @@ namespace MyBucks.Core.DataIntegration
             _buildActions.Add(() =>
             {
                 var result = _serializer.GetData<TData>(_stream);
-                destination = result.ToList();
+                result.ToList().ForEach(c => destination.Add(c));
             });
             return this;
         }
