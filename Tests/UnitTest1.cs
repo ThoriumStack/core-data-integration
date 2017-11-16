@@ -11,7 +11,7 @@ namespace Tests
         public void Test1()
         {
             var transport = new MyBucks.Core.DataIntegration.Transports.MockFileSystemTransport();
-            var serializer = new MyBucks.Core.DataIntegration.se
+            //var serializer = new MyBucks.Core.DataIntegration.se
         }
 
         public class FakeSerializer : MyBucks.Core.DataIntegration.Interfaces.IIntegrationDataSerializer

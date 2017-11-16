@@ -13,7 +13,7 @@ namespace MyBucks.Core.DataIntegration
         //    return transport.SendData(rawData);
         //}
 
-        public (bool, string) SendData(IOutputBuilder outputBuilder, IFileIntegrationTransport transport)
+        public (bool, string) SendData(IOutputBuilder outputBuilder, IIntegrationTransport transport)
         {
             return transport.SendData(outputBuilder.Build());
         }
@@ -27,7 +27,7 @@ namespace MyBucks.Core.DataIntegration
         //    return result;
         //}
 
-        public void ReceiveData(IInputBuilder builder, IFileIntegrationTransport transport)
+        public void ReceiveData(IInputBuilder builder, IIntegrationTransport transport)
         {
             MemoryStream rawData = transport.CollectRawData();
             builder.SetData(rawData);
