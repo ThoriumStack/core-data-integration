@@ -13,8 +13,6 @@ namespace MyBucks.Core.DataIntegration
         private MemoryStream _stream;
 
         private readonly List<Action> _buildActions = new List<Action>();
-        private string _identifier = "unknown";
-        private long _country = 0;
         private Action<Exception> _errorAction;
 
         public IInputBuilder SetSerializer(IIntegrationDataSerializer serializer)
