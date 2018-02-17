@@ -18,7 +18,7 @@ namespace MyBucks.Core.DataIntegration.Transports
 
         public string FilePath { get; set; }
         public string CurrentTransportMethod => "localfile";
-        public string PathSeperator => "\\";
+        public string PathSeperator => "" + Path.DirectorySeparatorChar;
 
         public MemoryStream CollectRawData()
         {
