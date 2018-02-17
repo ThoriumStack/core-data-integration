@@ -54,7 +54,7 @@ namespace MyBucks.Core.DataIntegration.Transports
         }
 
         public Action AfterSend { get; set; }
-        public Action<Exception> ErrorAction { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public Action<Exception> ErrorAction { get; set; }
 
         public MemoryStream GetLastRawData()
         {
