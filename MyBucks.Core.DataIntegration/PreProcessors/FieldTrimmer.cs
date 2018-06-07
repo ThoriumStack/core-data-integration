@@ -1,12 +1,8 @@
-﻿using MyBucks.Core.DataIntegration.Interfaces;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+using MyBucks.Core.DataIntegration.Interfaces;
 
-namespace Atlas.Modules.DataIntegration.Service.PreProcessors
+namespace MyBucks.Core.DataIntegration.PreProcessors
 {
     public class FieldTrimmer : IPreprocessor
     {

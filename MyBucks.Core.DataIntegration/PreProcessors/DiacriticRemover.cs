@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Linq;
-using MyBucks.Core.DataIntegration.Interfaces;
-using System.Text;
 using System.Globalization;
+using System.Linq;
+using System.Text;
+using MyBucks.Core.DataIntegration.Interfaces;
 
-namespace Atlas.Modules.DataIntegration.Service.PreProcessors
+namespace MyBucks.Core.DataIntegration.PreProcessors
 {
 
     /// <summary>

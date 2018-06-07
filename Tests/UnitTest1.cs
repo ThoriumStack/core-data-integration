@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using MyBucks.Core.DataIntegration;
+using MyBucks.Core.DataIntegration.PreProcessors;
 using Xunit;
 
 namespace Tests
@@ -12,6 +14,11 @@ namespace Tests
         {
             var transport = new MyBucks.Core.DataIntegration.Transports.MockFileSystemTransport();
             //var serializer = new MyBucks.Core.DataIntegration.se
+            
+            var outputBuilder = new OutputBuilder()
+                .AddPreProcessor(new DiacriticRemover())
+                .AddPreProcessor(new RegexRemover("."))
+                
         }
 
         public class FakeSerializer : MyBucks.Core.DataIntegration.Interfaces.IIntegrationDataSerializer

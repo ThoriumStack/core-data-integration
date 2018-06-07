@@ -3,7 +3,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using MyBucks.Core.DataIntegration.Interfaces;
 
-namespace Atlas.Modules.DataIntegration.Service.PreProcessors
+namespace MyBucks.Core.DataIntegration.PreProcessors
 {
     /// <summary>
     /// Removes anything that matches a specific regex pattern.
