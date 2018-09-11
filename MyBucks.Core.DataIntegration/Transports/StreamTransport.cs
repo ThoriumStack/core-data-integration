@@ -16,6 +16,13 @@ namespace MyBucks.Core.DataIntegration.Transports
 
         private MemoryStream _stream;
 
+
+        public StreamTransport()
+
+        {
+            OutputStream = new MemoryStream();
+        }
+
         public MemoryStream CollectRawData()
         {
             _stream = new MemoryStream();
