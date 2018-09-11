@@ -5,7 +5,7 @@ using System.Text;
 namespace MyBucks.Core.DataIntegration.Attributes
 {
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Class)]
-    public class ExcelAttribute : System.Attribute
+    public class ExcelColumnAttribute : System.Attribute
     {
         public bool ShowHeader { get; } = true;
 
@@ -14,12 +14,12 @@ namespace MyBucks.Core.DataIntegration.Attributes
 
         public int Row { get; } = 1;
 
-        public ExcelAttribute(String column, int row, Boolean showHeader = true)
+        public ExcelColumnAttribute(String column, int row, Boolean showHeader = true)
         {
             Column = column;
             Row = row;
             ShowHeader = showHeader;
-            ColumnNumber = ExcelAttribute.ExcelColumnNameToNumber(column);
+            ColumnNumber = ExcelColumnAttribute.ExcelColumnNameToNumber(column);
         }
 
         private static int ExcelColumnNameToNumber(String columnName)

@@ -12,6 +12,7 @@ namespace MyBucks.Core.DataIntegration.Transports
         public Action<Exception> ErrorAction { get; set; }
 
         public Stream InputStream { get; set; }
+        public Stream OutputStream { get; set; }
 
         private MemoryStream _stream;
 
@@ -31,7 +32,22 @@ namespace MyBucks.Core.DataIntegration.Transports
 
         public (bool, string) SendData(MemoryStream rawData)
         {
-            throw new NotImplementedException();
+            _stream = rawData;
+            try
+            {
+                rawData.Seek(0, SeekOrigin.Begin);
+                rawData.Position = 0;
+                rawData.CopyTo(OutputStream);
+                rawData.Close();
+
+                AfterSend?.Invoke();
+                return (true, $"Created successfully");
+            }
+            catch (Exception ex)
+            {
+                ErrorAction?.Invoke(ex);
+                return (false, ex.Message);
+            }
         }
     }
 }
