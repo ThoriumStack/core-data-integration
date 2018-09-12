@@ -13,5 +13,7 @@ namespace MyBucks.Core.DataIntegration.Interfaces
 
         MemoryStream Build();
         IOutputBuilder AddPreProcessor(IPreprocessor preProcessor);
+
+        IOutputBuilder SetOptionResetMemoryBufferOnAdd(bool option);
     }
 }

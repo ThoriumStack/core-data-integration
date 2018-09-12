@@ -16,6 +16,7 @@ namespace MyBucks.Core.DataIntegration
         private List<IPreprocessor> _preProcessors = new List<IPreprocessor>();
 
         private List<object> _allItems = new List<object>();
+        private Boolean _resetMemoryBufferOnAdd = false;
 
         public OutputBuilder()
         {
@@ -55,6 +56,12 @@ namespace MyBucks.Core.DataIntegration
                 var rawData = _serializer.GenerateRawData(enumerable);
                 rawData.Seek(0, SeekOrigin.Begin);
                 rawData.Position = 0;
+
+                if (_resetMemoryBufferOnAdd)
+                {
+                    _memory.Position = 0;
+                }
+
                 rawData.CopyTo(_memory);
             });
             return this;
@@ -74,8 +81,21 @@ namespace MyBucks.Core.DataIntegration
                 var rawData = _serializer.GenerateRawData(new List<TData> { data });
                 rawData.Seek(0, SeekOrigin.Begin);
                 rawData.Position = 0;
+
+
+                if (_resetMemoryBufferOnAdd)
+                {
+                    _memory.Position = 0;
+                }
+
                 rawData.CopyTo(_memory);
             });
+            return this;
+        }
+
+        public IOutputBuilder SetOptionResetMemoryBufferOnAdd(bool option)
+        {
+            _resetMemoryBufferOnAdd = option;
             return this;
         }
 
