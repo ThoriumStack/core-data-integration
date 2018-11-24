@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyBucks.Core.DataIntegration.Attributes
+namespace Thorium.Core.DataIntegration.Attributes
 {
     public class ColumnHeaderAttribute : System.Attribute
     {

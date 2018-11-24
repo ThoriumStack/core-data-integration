@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyBucks.Core.DataIntegration.Interfaces
+namespace Thorium.Core.DataIntegration.Interfaces
 {
 
     /// <summary>
-    /// A preprocessor allows you to manipulate data accross datasets that are sent via the data integration service. 
+    /// A preprocessor allows you to manipulate data across datasets that are sent via the data integration service. 
     /// </summary>
     public interface IPreprocessor
     {

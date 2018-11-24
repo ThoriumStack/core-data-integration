@@ -1,22 +1,11 @@
 ﻿using System;
 using System.Linq;
-using System.Text.RegularExpressions;
-using MyBucks.Core.DataIntegration.Interfaces;
+using Thorium.Core.DataIntegration.Interfaces;
 
-namespace MyBucks.Core.DataIntegration.PreProcessors
+namespace Thorium.Core.DataIntegration.PreProcessors
 {
-    /// <summary>
-    /// Removes anything that matches a specific regex pattern.
-    /// </summary>
-    public class RegexRemover : IPreprocessor
+    public class FieldTrimmer : IPreprocessor
     {
-        private readonly string _pattern;
-
-        public RegexRemover(string pattern)
-        {
-            _pattern = pattern;
-        }
-
         public void ProcessObject(object obj)
         {
             var props = obj.GetType().GetProperties();
@@ -26,9 +15,10 @@ namespace MyBucks.Core.DataIntegration.PreProcessors
 
                 if (str == null) continue;
 
+                str = str.Trim();
+
                 try
                 {
-                    str = Regex.Replace(str, _pattern, string.Empty);
                     prop.SetValue(obj, str, null);
                 }
                 catch (Exception e)
@@ -37,5 +27,6 @@ namespace MyBucks.Core.DataIntegration.PreProcessors
                 }
             }
         }
+
     }
 }

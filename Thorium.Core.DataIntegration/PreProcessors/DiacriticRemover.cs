@@ -2,9 +2,9 @@
 using System.Globalization;
 using System.Linq;
 using System.Text;
-using MyBucks.Core.DataIntegration.Interfaces;
+using Thorium.Core.DataIntegration.Interfaces;
 
-namespace MyBucks.Core.DataIntegration.PreProcessors
+namespace Thorium.Core.DataIntegration.PreProcessors
 {
 
     /// <summary>

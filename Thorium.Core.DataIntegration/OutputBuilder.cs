@@ -1,11 +1,11 @@
-﻿using MyBucks.Core.DataIntegration.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Thorium.Core.DataIntegration.Interfaces;
 
-namespace MyBucks.Core.DataIntegration
+namespace Thorium.Core.DataIntegration
 {
     public class OutputBuilder : IOutputBuilder
     {

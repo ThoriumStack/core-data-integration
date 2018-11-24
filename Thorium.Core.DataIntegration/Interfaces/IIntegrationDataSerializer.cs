@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text;
 
-namespace MyBucks.Core.DataIntegration.Interfaces
+namespace Thorium.Core.DataIntegration.Interfaces
 {
     public interface IIntegrationDataSerializer
     {

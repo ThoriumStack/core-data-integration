@@ -1,10 +1,10 @@
-﻿using MyBucks.Core.DataIntegration.Interfaces;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using Thorium.Core.DataIntegration.Interfaces;
 
-namespace MyBucks.Core.DataIntegration.Transports
+namespace Thorium.Core.DataIntegration.Transports
 {
     public class StreamTransport : IIntegrationTransport
     {

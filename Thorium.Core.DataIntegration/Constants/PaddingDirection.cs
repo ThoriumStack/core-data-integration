@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace MyBucks.Core.DataIntegration.Constants
+namespace Thorium.Core.DataIntegration.Constants
 {
     public enum PaddingDirection
     {

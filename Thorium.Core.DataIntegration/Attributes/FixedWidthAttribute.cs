@@ -1,9 +1,9 @@
-﻿using MyBucks.Core.DataIntegration.Constants;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Thorium.Core.DataIntegration.Constants;
 
-namespace MyBucks.Core.DataIntegration.Attributes
+namespace Thorium.Core.DataIntegration.Attributes
 {
     [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
     public class FixedWidthFieldAttribute : System.Attribute

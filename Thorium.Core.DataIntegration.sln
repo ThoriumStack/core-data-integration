@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyBucks.Core.DataIntegration", "MyBucks.Core.DataIntegration\MyBucks.Core.DataIntegration.csproj", "{9F1A7D2A-2ACB-4A0F-BA83-A880D99EA12A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Thorium.Core.DataIntegration", "Thorium.Core.DataIntegration\Thorium.Core.DataIntegration.csproj", "{9F1A7D2A-2ACB-4A0F-BA83-A880D99EA12A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{FE60C75D-36D3-4C1A-B40E-F81C6199EE5D}"
 EndProject
