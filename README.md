@@ -2,6 +2,8 @@
 
 Many external integrations make use of specific text based file formats delivered via protocols other than http. The data integration service makes these types of legacy integrations simple and based on modern c# programming concepts such as automatic serialization/deserialization and easy access to common transport protocols. 
 
+The consistent interface provided by the library is useful to create a single paradigm for communicating with legacy APIs that often used fixed width or csv file drops on remote servers. 
+
 ## Concepts
 
 Any data integration implementation is based on four distinct interchangeable components, namely a serializer, a transport, various pre-processors and type converters.
@@ -41,13 +43,17 @@ var csvSerializer = new CsvSerializer
     HasHeaderRecord = true
 };
 var transport = new LocalFileTransport { FilePath = $"C:\\temp\\testplanets.csv" };
-var result = a.SendData(planets, csvSerializer, transport);
+var build = new Integrator()
+    .SetSerializer(csvSerializer)
+    .AddListData(planets);
+
+    var result = a.SendData(build, transport);
 ```
 
 Read data back from a CSV file on the local filesystem
 
 ```csharp
-var a = new Modules.DataIntegration.Service.DataIntegrationService();
+var a = new Integrator();
 
 var csvSerializer = new CsvSerializer
 {
@@ -55,8 +61,16 @@ var csvSerializer = new CsvSerializer
     HasHeaderRecord = true
 };
 var transport = new LocalFileTransport { FilePath = $"C:\\temp\\testplanets.csv" };
-var result = a.ReceiveAsyncData<Planet>(csvSerializer, transport);
-return;
+var planets = new List<Planet>();
+var nb = new InputBuilder()
+    .SetData(builtFile)
+    .SetSerializer(csvSerializer)
+    .ReadAll(planets);
+
+
+a.ReceiveData(nb, transport);
+
+// planets will now be filled with data from testplanets.
 ```
 
 ## Using the builder for more complex files
@@ -127,7 +141,7 @@ var csvSerializer = new CsvSerializer
 
 };
 var transport = new LocalFileTransport { FilePath = $"C:\\temp\\broken.csv" };
-var build = new DataIntegrationOutputBuilder()
+var build = new Integrator()
     .SetSerializer(csvSerializer)
     .AddPreProcessor(new DiacriticRemover())
     .AddPreProcessor(new RegexRemover(@"[^a-zA-Z0-9/\.\-+&><=*,;'\(\)$]+"))
@@ -135,7 +149,7 @@ var build = new DataIntegrationOutputBuilder()
     .AddListData(planets)
     .AddData(new Galaxy() {Name = "Alpha Centauri"});
 
-    var result = a.SendAsyncData(build, transport);
+    var result = a.SendData(build, transport);
 
 ```
 
@@ -171,7 +185,7 @@ var csvSerializer = new CsvSerializer
 };
 var builtFile = BuilderTest().Build(); // input data is faked. Would normally come through a transport
           
-var nb = new DataIntegrationInputBuilder()
+var nb = new InputBuilder()
     .SetData(builtFile)
     .SetSerializer(csvSerializer)
     .ReadOnce<StellarSystem, FirstFieldDiscriminator<string>>(system => star = system, discriminator => discriminator.Value == "STELLARSYSTEM")
