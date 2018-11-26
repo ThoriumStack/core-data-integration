@@ -1,8 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using MyBucks.Core.DataIntegration;
-using MyBucks.Core.DataIntegration.PreProcessors;
+using Thorium.Core.DataIntegration;
+using Thorium.Core.DataIntegration.PreProcessors;
 using Xunit;
 
 namespace Tests
@@ -12,7 +12,7 @@ namespace Tests
         [Fact]
         public void Test1()
         {
-            var transport = new MyBucks.Core.DataIntegration.Transports.MockFileSystemTransport();
+            var transport = new Thorium.Core.DataIntegration.Transports.MockFileSystemTransport();
             //var serializer = new MyBucks.Core.DataIntegration.se
             
             var outputBuilder = new OutputBuilder()
@@ -21,7 +21,7 @@ namespace Tests
                 
         }
 
-        public class FakeSerializer : MyBucks.Core.DataIntegration.Interfaces.IIntegrationDataSerializer
+        public class FakeSerializer : Thorium.Core.DataIntegration.Interfaces.IIntegrationDataSerializer
         {
             public MemoryStream GenerateRawData<TData>(IEnumerable<TData> data)
             {
