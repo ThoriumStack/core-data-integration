@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyBucks.Core.DataIntegration\MyBucks.Core.DataIntegration.csproj" />
+    <ProjectReference Include="..\Thorium.Core.DataIntegration\Thorium.Core.DataIntegration.csproj" />
   </ItemGroup>
 
 </Project>
