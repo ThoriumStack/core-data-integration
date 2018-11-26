@@ -77,7 +77,7 @@ a.ReceiveData(nb, transport);
 
 Some external parties have files that contain different types of records in the same files. Such files usually have a header, body with multiple records and a footer record, but this may vary according to the integration. The input and Output builders of the data integration service can cater for such complex files by allowing a definition of the file format to be given to a builder to create or read such files. 
 
-Below is an example of how to create a file with a header, body items and a footer using the `DataIntegrationOutputBuilder`
+Below is an example of how to create a file with a header, body items and a footer using the `OutputBuilder`
 
 ### Our example classes
 
@@ -153,9 +153,9 @@ var build = new Integrator()
 
 ```
 
-Data is added sequentially to the output, but data is only actually read from the input variables when the `.build()` method is called on the output builder object. In this case, an overload of `SendAsyncData()` will call build and create the output for sending via the transport.
+Data is added sequentially to the output, but data is only actually read from the input variables when the `.build()` method is called on the output builder object. In this case, an overload of `SendData()` will call build and create the output for sending via the transport.
 
-Below is an example of using the `DataIntegrationInputBuilder`. In this example data is read into C# objects by specifying which records in a file match which type with a Discriminator object
+Below is an example of using the `InputBuilder`. In this example data is read into C# objects by specifying which records in a file match which type with a Discriminator object
 
 ### Our input file:
 ```
