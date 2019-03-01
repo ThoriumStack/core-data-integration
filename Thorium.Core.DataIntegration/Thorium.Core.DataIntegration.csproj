@@ -1,5 +1,21 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Version>$(appveyor_build_version)</Version>
+    <Authors>Thorium Dev Team</Authors>
+    <Company>Thorium Dev Team</Company>
+    <Product>Thorium Data Integration</Product>
+    <PackageId>Thorium.Core.DataIntegration</PackageId>
+    <AssemblyVersion>$(appveyor_build_version)</AssemblyVersion>
+    <FileVersion>$(appveyor_build_version)</FileVersion>
+    <NeutralLanguage>en</NeutralLanguage>
+    <Description>Integrate legacy file based integrations with modern c# syntax.</Description>
+    <Copyright>Copyright Thorium Dev Team 2019</Copyright>
+    <PackageLicenseUrl>https://raw.githubusercontent.com/ThoriumStack/core-data-integration/master/LICENSE</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/ThoriumStack/core-data-integration</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ThoriumStack/core-data-integration</RepositoryUrl>
+    <PackageTags>integration</PackageTags>
+    <PackageReleaseNotes>Release</PackageReleaseNotes>
+  </PropertyGroup>
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
